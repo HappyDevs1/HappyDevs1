@@ -8,7 +8,7 @@ I'm a dedicated and enthusiastic developer hailing from the vibrant landscapes o
 
 * 🌍  I'm based in South Africa, Gauteng
 * ✉️  You can contact me at [happysfisomahlangu12@gmail.com](mailto:happysfisomahlangu12@gmail.com)
-* 🧠  I'm learning React JS
+* 🧠  I'm learning MERN Stack
 * 🤝  I'm open to collaborating on Javascript projects
 
 ### Skills

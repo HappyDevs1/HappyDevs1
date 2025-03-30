@@ -6,7 +6,7 @@ Software Developer
 
 * 🌍  I'm based in South Africa
 * ✉️  You can contact me at [happysfisomahlangu12@gmail.com](mailto:happysfisomahlangu12@gmail.com)
-* 🧠  I'm learning Java
+* 🧠  I'm currently learning Machine Learning in Python
 * 🤝  I'm open to collaborating on Full Stack Web Application
 * ⚡  I'm secretly Batman...But don't tell anyone
 

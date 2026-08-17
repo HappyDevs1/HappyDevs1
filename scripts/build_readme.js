@@ -13,6 +13,7 @@ const EMOJI = {
   WatchEvent: '⭐',
   IssuesEvent: '🐛',
   CreateEvent: '✨',
+  DeleteEvent: '🗑️',
   ForkEvent: '🍴',
 };
 
@@ -26,25 +27,51 @@ function timeAgo(dateStr) {
   return `${days}d ago`;
 }
 
+// The public events API returns a trimmed payload (no html_url on most
+// nested objects), so URLs are reconstructed from repo name + ids/refs.
 function describe(event) {
   const repo = event.repo.name;
+  const repoUrl = `https://github.com/${repo}`;
+  const payload = event.payload;
+
   switch (event.type) {
     case 'PushEvent':
-      return `pushed to ${repo}`;
+      return { text: `pushed to ${repo}`, url: `${repoUrl}/commit/${payload.head}` };
     case 'PullRequestEvent':
-      return `${event.payload.action} PR #${event.payload.number} in ${repo}`;
+      return {
+        text: `${payload.action} PR #${payload.number} in ${repo}`,
+        url: `${repoUrl}/pull/${payload.number}`,
+      };
     case 'ReleaseEvent':
-      return `released ${event.payload.release.tag_name} on ${repo}`;
+      return {
+        text: `released ${payload.release.tag_name} on ${repo}`,
+        url: payload.release.html_url || `${repoUrl}/releases/tag/${payload.release.tag_name}`,
+      };
     case 'WatchEvent':
-      return `starred ${repo}`;
+      return { text: `starred ${repo}`, url: repoUrl };
     case 'IssuesEvent':
-      return `${event.payload.action} issue #${event.payload.issue.number} in ${repo}`;
+      return {
+        text: `${payload.action} issue #${payload.issue.number} in ${repo}`,
+        url: payload.issue.html_url || `${repoUrl}/issues/${payload.issue.number}`,
+      };
     case 'CreateEvent':
-      return event.payload.ref_type === 'repository'
-        ? `created ${repo}`
-        : `created ${event.payload.ref_type} in ${repo}`;
+      if (payload.ref_type === 'repository') {
+        return { text: `created ${repo}`, url: repoUrl };
+      }
+      return {
+        text: `created ${payload.ref_type} \`${payload.ref}\` in ${repo}`,
+        url: `${repoUrl}/tree/${payload.ref}`,
+      };
+    case 'DeleteEvent':
+      return {
+        text: `deleted ${payload.ref_type} \`${payload.ref}\` in ${repo}`,
+        url: repoUrl,
+      };
     case 'ForkEvent':
-      return `forked ${repo}`;
+      return {
+        text: `forked ${repo}`,
+        url: payload.forkee ? `https://github.com/${payload.forkee.full_name}` : repoUrl,
+      };
     default:
       return null;
   }
@@ -68,16 +95,13 @@ async function main() {
     const desc = describe(event);
     if (!desc) continue;
     const emoji = EMOJI[event.type] || '•';
-    lines.push(`  ${emoji} ${desc} (${timeAgo(event.created_at)})`);
+    lines.push(`- ${emoji} [${desc.text}](${desc.url}) \`${timeAgo(event.created_at)}\``);
     if (lines.length === MAX_LINES) break;
   }
 
-  const block = [
-    '```bash',
-    '$ recent_activity --last 5',
-    ...(lines.length ? lines : ['  (nothing recent — go build something)']),
-    '```',
-  ].join('\n');
+  const block = lines.length
+    ? lines.join('\n')
+    : '_(nothing recent — go build something)_';
 
   const readme = fs.readFileSync(README_PATH, 'utf8');
   const startIdx = readme.indexOf(START_MARKER);

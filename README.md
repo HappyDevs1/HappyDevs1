@@ -19,4 +19,4 @@ $ recent_activity --last 5
 ```
 <!-- recent_activity ends -->
 
-<sub>auto-updated every few hours via GitHub Actions — see [`.github/workflows/build.yml`](.github/workflows/build.yml)</sub>
+<sub>auto-updated every 15 minutes via GitHub Actions — see [`.github/workflows/build.yml`](.github/workflows/build.yml)</sub>

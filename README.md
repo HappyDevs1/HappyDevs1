@@ -6,7 +6,7 @@ $ cat status.txt
 Currently exploring, shipping, and automating whatever I can.
 ```
 
-### `$ recent_activity --last 5`
+### `$ recent_activity -n 5`
 
 <!-- recent_activity starts -->
 - 🚀 [pushed to automators-com/flowproof](https://github.com/automators-com/flowproof/commit/a0579f94faad043b989982593d15cd6ec9f901fe) `42m ago`

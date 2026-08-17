@@ -11,11 +11,11 @@ Currently exploring, shipping, and automating whatever I can.
 <!-- recent_activity starts -->
 ```bash
 $ recent_activity --last 5
-  🚀 pushed 0 commits to HappyDevs1/HappyDevs1 (0m ago)
-  🚀 pushed 0 commits to HappyDevs1/HappyDevs1 (1m ago)
-  🚀 pushed 0 commits to automators-com/flowproof (14m ago)
-  🚀 pushed 0 commits to automators-com/flowproof (14m ago)
-  🔀 merged PR #473 in automators-com/flowproof (12m ago)
+  🚀 pushed to HappyDevs1/HappyDevs1 (0m ago)
+  🚀 pushed to HappyDevs1/HappyDevs1 (1m ago)
+  🚀 pushed to automators-com/flowproof (15m ago)
+  🚀 pushed to automators-com/flowproof (14m ago)
+  🔀 merged PR #473 in automators-com/flowproof (13m ago)
 ```
 <!-- recent_activity ends -->
 

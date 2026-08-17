@@ -29,10 +29,8 @@ function timeAgo(dateStr) {
 function describe(event) {
   const repo = event.repo.name;
   switch (event.type) {
-    case 'PushEvent': {
-      const n = event.payload.commits ? event.payload.commits.length : 0;
-      return `pushed ${n} commit${n === 1 ? '' : 's'} to ${repo}`;
-    }
+    case 'PushEvent':
+      return `pushed to ${repo}`;
     case 'PullRequestEvent':
       return `${event.payload.action} PR #${event.payload.number} in ${repo}`;
     case 'ReleaseEvent':

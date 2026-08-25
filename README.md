@@ -9,11 +9,11 @@ Currently exploring, shipping, and automating whatever I can.
 ### `$ recent_activity -n 5`
 
 <!-- recent_activity starts -->
-- 🚀 [pushed to automators-com/flowproof](https://github.com/automators-com/flowproof/commit/3c794afc77dac3535a5f63cd564f4030e85cd262) `15h ago`
-- 🚀 [pushed to automators-com/flowproof](https://github.com/automators-com/flowproof/commit/de12af51601281d884fd3b422c4857717efd203e) `15h ago`
-- 🚀 [pushed to automators-com/flowproof](https://github.com/automators-com/flowproof/commit/d5da8938892b0a39ba04f481c68fef67b08a9629) `17h ago`
-- 🗑️ [deleted branch `chore/sap-e2e-overnight-cadence` in automators-com/flowproof](https://github.com/automators-com/flowproof) `15h ago`
-- 🔀 [merged PR #504 in automators-com/flowproof](https://github.com/automators-com/flowproof/pull/504) `15h ago`
+- 🔀 [opened PR #508 in automators-com/flowproof](https://github.com/automators-com/flowproof/pull/508) `1m ago`
+- 🐛 [closed issue #474 in automators-com/flowproof](https://github.com/automators-com/flowproof/issues/474) `9m ago`
+- 🐛 [assigned issue #376 in automators-com/flowproof](https://github.com/automators-com/flowproof/issues/376) `10m ago`
+- 🐛 [assigned issue #507 in automators-com/flowproof](https://github.com/automators-com/flowproof/issues/507) `10m ago`
+- 🐛 [labeled issue #507 in automators-com/flowproof](https://github.com/automators-com/flowproof/issues/507) `11m ago`
 <!-- recent_activity ends -->
 
 <sub>auto-updated every 15 minutes via GitHub Actions — see [`.github/workflows/build.yml`](.github/workflows/build.yml)</sub>
